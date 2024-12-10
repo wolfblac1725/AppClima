@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AppClima</string>
+    <string name="error_permission">La aplicación necesita el permiso de ubicación para funcionar.</string>
+    <string name="text_coordinate">Latitud: %s, Longitud: %s</string>
+    <string name="max_temp">Maxima: %s</string>
+    <string name="min_temp">Minima: %s</string>
+    <string name="humidity">Humedad: %s %%</string>
+    <string name="pressure">Presión: %s hPa</string>
+    <string name="date"> Fecha: %s </string>
+</resources>
