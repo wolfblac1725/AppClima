@@ -3,7 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.dagger.hilt)
-    alias(libs.plugins.android.kapt)
+    alias(libs.plugins.android.ksp )
+
 }
 
 android {
@@ -13,7 +14,7 @@ android {
     defaultConfig {
         applicationId = "com.erik.canseco.appclima"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -51,12 +52,13 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.material3.windows)
 
     //Hilt
 
     implementation(libs.google.hilt.android)
-    kapt(libs.google.hilt.compile)
-    kapt(libs.androidx.hilt.compile)
+    ksp(libs.google.hilt.compile)
+    ksp(libs.androidx.hilt.compile)
     implementation(libs.androidx.hilt.navigation)
     implementation(libs.androidx.hilt.navigation.compose)
 
@@ -70,12 +72,17 @@ dependencies {
     //Coil
     implementation(libs.coil.compose)
 
-    //Splash Screen
-    implementation(libs.core.splashscreen)
-
     //Location
     implementation(libs.play.services.location)
-    
+
+    //Room
+    implementation(libs.androidx.room)
+    ksp(libs.androidx.room.compile)
+    annotationProcessor(libs.androidx.room.compile)
+
+    //Work
+    implementation(libs.androidx.work)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -1,5 +1,8 @@
 package com.erik.canseco.appclima.di
 
+import android.app.Application
+import androidx.room.Room
+import com.erik.canseco.appclima.data.local.WeatherDatabase
 import com.erik.canseco.appclima.data.remote.APIKeyInterceptor
 import com.erik.canseco.appclima.data.remote.WeatherApi
 import com.erik.canseco.appclima.util.Constant
@@ -26,12 +29,22 @@ object AppModule {
 
     @Singleton
     @Provides
-
     fun providesWeatherApi(): WeatherApi {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(Constant.BASE_URL)
             .client(client)
             .build().create(WeatherApi::class.java)
+    }
+
+
+    @Singleton
+    @Provides
+    fun providesWeatherDatabase(app: Application): WeatherDatabase {
+        return Room.databaseBuilder(
+            app,
+            WeatherDatabase::class.java,
+            "weather_db"
+        ).build()
     }
 }

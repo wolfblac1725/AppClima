@@ -1,5 +1,6 @@
 package com.erik.canseco.appclima.util
 
+import android.annotation.SuppressLint
 import com.erik.canseco.appclima.R
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -34,6 +35,6 @@ object Utility {
     fun formatDate(date: Long): String {
         val sdf = SimpleDateFormat("dd/MM/yyyy")
         return sdf.format(Date(date * 1000))
-
     }
+   
 }
