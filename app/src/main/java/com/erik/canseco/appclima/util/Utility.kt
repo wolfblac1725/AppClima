@@ -1,13 +1,13 @@
 package com.erik.canseco.appclima.util
 
-import android.annotation.SuppressLint
 import com.erik.canseco.appclima.R
 import java.text.SimpleDateFormat
 import java.util.Date
+import java.util.Locale
 
 object Utility {
     fun formatTemp(temp: Double): String {
-        return String.format("%.2f°",temp)
+        return String.format(Locale.getDefault(),"%.2f°",temp)
     }
     fun iconWeather(icon: String): Int {
         return when(icon) {
@@ -33,7 +33,7 @@ object Utility {
         }
     }
     fun formatDate(date: Long): String {
-        val sdf = SimpleDateFormat("dd/MM/yyyy")
+        val sdf = SimpleDateFormat("dd/MM/yyyy",Locale.getDefault())
         return sdf.format(Date(date * 1000))
     }
    
